@@ -24,7 +24,7 @@ springBoot {
 }
 
 bootRun {
-    args = []
+    args = ["--spring.profiles.active=dev"]
 }
 
 task webpackBuildDev(type: NpmTask) {

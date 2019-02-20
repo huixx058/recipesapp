@@ -90,6 +90,7 @@ if (OperatingSystem.current().isWindows()) {
     }
 
     bootRun {
+        args = ["--spring.profiles.active=dev"]
         dependsOn classpathJar
         doFirst {
             classpath = files("$buildDir/classes/java/main", "$buildDir/resources/main", classpathJar.archivePath)
