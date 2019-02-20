@@ -1,0 +1,41 @@
+{
+    "name": "IngredientAmount",
+    "fields": [
+        {
+            "fieldName": "ingredientAmount",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "ingredientUnit",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "recipee",
+            "otherEntityName": "recipee",
+            "otherEntityField": "name",
+            "otherEntityRelationshipName": "ingredientAmount"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "ingredient",
+            "otherEntityName": "ingredient",
+            "otherEntityField": "name",
+            "otherEntityRelationshipName": "ingredientAmount"
+        }
+    ],
+    "changelogDate": "20190220222112",
+    "entityTableName": "ingredient_amount",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
