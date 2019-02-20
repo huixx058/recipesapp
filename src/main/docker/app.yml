@@ -1,0 +1,20 @@
+version: '2'
+services:
+    recipesapp-app:
+        image: recipesapp
+        environment:
+            - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://recipesapp-mysql:3306/recipesapp?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+            - SPRING_DATA_JEST_URI=http://recipesapp-elasticsearch:9200
+        ports:
+            - 8080:8080
+    recipesapp-mysql:
+        extends:
+            file: mysql.yml
+            service: recipesapp-mysql
+    recipesapp-elasticsearch:
+        extends:
+            file: elasticsearch.yml
+            service: recipesapp-elasticsearch
