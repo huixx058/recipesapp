@@ -1,0 +1,29 @@
+{
+    "name": "MealType",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "mealTypeRecipee",
+            "otherEntityName": "recipee",
+            "otherEntityRelationshipName": "mealType"
+        }
+    ],
+    "changelogDate": "20190220222113",
+    "entityTableName": "meal_type",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

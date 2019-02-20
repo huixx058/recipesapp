@@ -1,0 +1,38 @@
+entity Recipee {
+	name String required,
+	description String,
+	steps String
+}
+
+entity Ingredient {
+	name String required
+}
+
+entity IngredientAmount {
+    ingredientAmount BigDecimal required
+    ingredientUnit String
+}
+
+entity MealType {
+    name String required
+}
+
+relationship OneToMany{
+    MealType{mealTypeRecipee} to Recipee{mealType(name)}
+}
+
+relationship ManyToOne{
+    IngredientAmount{recipee(name)} to Recipee
+}
+
+relationship ManyToOne{
+    IngredientAmount{ingredient(name)} to Ingredient
+}
+
+relationship ManyToMany{
+	 Recipee{ingredient(name)} to Ingredient{recipee}
+}
+
+paginate Recipee, Ingredient, IngredientAmount, MealType with pagination
+dto * with mapstruct
+service all with serviceImpl

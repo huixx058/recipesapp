@@ -1,0 +1,30 @@
+{
+    "name": "Ingredient",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "recipee",
+            "otherEntityName": "recipee",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "ingredient"
+        }
+    ],
+    "changelogDate": "20190220222111",
+    "entityTableName": "ingredient",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
