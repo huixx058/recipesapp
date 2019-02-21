@@ -1,7 +1,7 @@
 <div>
     <h2 id="page-heading">
         <span>Ingredient Amounts</span>
-        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-ingredient-amount" [routerLink]="['/ingredient-amount/new']">
+        <button *jhiHasAnyAuthority="'ROLE_ADMIN'" id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-ingredient-amount" [routerLink]="['/ingredient-amount/new']">
             <fa-icon [icon]="'plus'"></fa-icon>
             <span class="hidden-sm-down" >
             Create new Ingredient Amount
@@ -60,13 +60,13 @@
                             <fa-icon [icon]="'eye'"></fa-icon>
                             <span class="d-none d-md-inline">View</span>
                         </button>
-                        <button type="submit"
+                        <button *jhiHasAnyAuthority="'ROLE_ADMIN'"  type="submit"
                                 [routerLink]="['/ingredient-amount', ingredientAmount.id, 'edit']"
                                 class="btn btn-primary btn-sm">
                             <fa-icon [icon]="'pencil-alt'"></fa-icon>
                             <span class="d-none d-md-inline">Edit</span>
                         </button>
-                        <button type="submit"
+                        <button *jhiHasAnyAuthority="'ROLE_ADMIN'"  type="submit"
                                 [routerLink]="['/', 'ingredient-amount', { outlets: { popup: ingredientAmount.id + '/delete'} }]"
                                 replaceUrl="true"
                                 queryParamsHandling="merge"
